@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Petals | Contact Us</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="contact-petals"></div>
+
+<nav class="navbar">
+    <div class="logo-area">
+        <img src="image/logo.png" class="logo-icon">
+        <div class="logo-text"><span>Velvet </span><span>Petals</span></div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="occasions.html">Occasions</a></li>
+        <li><a href="custom.html">Custom Orders</a></li>
+        <li><a href="contact.html" class="active">Contact Us</a></li>
+    </ul>
+</nav>
+
+<section class="page-header fade-section">
+    <h1>Contact Velvet Petals</h1>
+    <p>We’re here to bring beauty to your moments.</p>
+</section>
+
+
+<section class="owner-wrapper fade-section">
+    <h2 class="section-title">Meet Our Team</h2>
+
+    <div class="owner-grid">
+        <div class="owner-card">
+            <h3>Putri</h3>
+            <p>Customer Relations Lead</p>
+            <p class="owner-email">putri@velvetpetals.com</p>
+            <p>Specializes in client experience & boutique coordination.</p>
+        </div>
+
+         <div class="owner-card">
+            <h3>Ummu</h3>
+            <p>Bouquet Specialist</p>
+            <p class="owner-email">ummu@velvetpetals.com</p>
+            <p>Expert in soft pastel bouquets & romantic floral styling.</p>
+        </div>
+
+            <div class="owner-card">
+            <h3>Qistina</h3>
+            <p>Logistics & Delivery Manager</p>
+            <p class="owner-email">qistina@velvetpetals.com</p>
+            <p>Ensures every bouquet arrives fresh and beautifully packaged.</p>
+        </div>
+
+        <div class="owner-card">
+            <h3>Farah</h3>
+            <p>Creative Director</p>
+            <p class="owner-email">farah@velvetpetals.com</p>
+            <p>Leads artistic direction & seasonal collection concepts.</p>
+        </div>
+    </div>
+</section>
+
+
+<section class="contact-form-section fade-section">
+    <h2 class="section-title">Send Us a Message</h2>
+
+    <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit" class="send-btn">Send Message</button>
+    </form>
+</section>
+
+
+<section class="social-box-section fade-section">
+    <h2 class="section-title">Connect With Us</h2>
+
+    <div class="social-box">
+        <ul class="social-list">
+            <li class="item">
+                <a href="https://www.instagram.com/velvet_petals2?igsh=MXBiNzNlOTZkc244eA%3D%3D&utm_source=qr">
+                    <i class="fa-brands fa-instagram icon"></i>
+                </a>
+            </li>
+
+            <li class="item">
+                <a href="https://www.tiktok.com/@velvet.petals20?_r=1&_t=ZS-93AqZcwY7Ht">
+                    <i class="fa-brands fa-tiktok icon"></i>
+                </a>
+            </li>
+
+            <li class="item">
+                <a href="https://wa.me/60197995860">
+                    <i class="fa-brands fa-whatsapp icon"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<script>
+
+const sections = document.querySelectorAll('.fade-section');
+
+function reveal() {
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < window.innerHeight - 80) {
+            sec.classList.add('visible');
+        }
+    });
+}
+window.addEventListener('scroll', reveal);
+window.onload = reveal;
+
+
+const contactPetals = document.querySelector('.contact-petals');
+
+if (contactPetals) {
+    const totalPetals = 20;
+
+    for (let i = 0; i < totalPetals; i++) {
+        const petal = document.createElement('img');
+        petal.src = "image/petals.png"; 
+        petal.classList.add('petal');
+        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.animationDuration = 6 + Math.random() * 6 + "s";
+        petal.style.animationDelay = Math.random() * 5 + "s";
+        petal.style.opacity =
+            (0.5 + Math.random() * 0.5).toString();
+
+        contactPetals.appendChild(petal);
+    }
+}
+</script>
+
+<footer>
+    <p>© 2026 Velvet Petals — Where Elegance Blooms</p>
+</footer>
+
+
+</body>
+</html>

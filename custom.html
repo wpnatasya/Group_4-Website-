@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velvet Petals | Custom Orders</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo-area">
+    <img src="image/logo.png" alt="Logo" class="logo-icon">
+    <div class="logo-text">Velvet <span>Petals</span></div>
+    </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="occasions.html">Occasions</a></li>
+            <li><a href="custom.html" class="active">Custom Orders</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <section class="page-header fade-section">
+    <h1>Custom Orders</h1>
+    <p>Create a bouquet that is uniquely yours.</p>
+</section>
+
+</header>
+
+<section class="custom-hero">
+    <h1>Create Your Dream Bouquet</h1>
+    <p>Tell us your vision, and we’ll craft a floral masterpiece just for you.</p>
+</section>
+
+<section class="custom-form-section">
+    <form class="custom-form">
+
+        <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="example@gmail.com" required>
+        </div>
+
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" placeholder="+60*********" required>
+        </div>
+
+        <div class="form-group">
+            <label>Occasion</label>
+            <select required>
+                <option disabled selected>Select an occasion</option>
+                <option>Birthday</option>
+                <option>Wedding</option>
+                <option>Annivesary</option>
+                <option>Graduation</option>
+                <option>Condolences</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Preferred Color Palette</label>
+            <div class="color-options">
+                <span class="color pastel-pink"></span>
+                <span class="color baby-blue"></span>
+                <span class="color lavender"></span>
+                <span class="color peach"></span>
+                <span class="color white"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Your Message</label>
+            <textarea placeholder="Tell us the style, flowers you love, or anything specific you want"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Upload Reference Image (Optional)</label>
+            <input type="file" class="file-input" id="fileInput">
+
+<div class="image-preview" id="imagePreview">
+    <img id="previewImg">
+</div>
+
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Custom Order</button>
+
+    </form>
+</section>
+
+
+
+<footer>
+    <p>© 2026 Velvet Petals — Where Elegance Blooms</p>
+</footer>
+
+<script>
+
+const sections = document.querySelectorAll('.fade-section');
+
+function checkSections() {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < triggerBottom) sec.classList.add("visible");
+    });
+}
+
+window.addEventListener('scroll', checkSections);
+window.addEventListener('load', checkSections);
+
+
+const colorOptions = document.querySelectorAll(".color");
+
+colorOptions.forEach(c => {
+    c.addEventListener("click", () => {
+        colorOptions.forEach(co => co.classList.remove("selected"));
+        c.classList.add("selected");
+    });
+});
+
+
+const fileInput = document.getElementById("fileInput");
+const imagePreview = document.getElementById("imagePreview");
+const previewImg = document.getElementById("previewImg");
+
+fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+    if (file) {
+        previewImg.src = URL.createObjectURL(file);
+        imagePreview.style.display = "block";
+    }
+});
+</script>
+
+<section class="custom-hero fade-section">
+<section class="custom-form-section fade-section">
+
+
+</body>
+</html>

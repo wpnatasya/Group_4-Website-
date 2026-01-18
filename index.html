@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velvet Petals | Home</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="petal-container"></div>
+
+<header>
+    <nav class="navbar">
+        <div class="logo-area">
+    <img src="image/logo.png" alt="Logo" class="logo-icon">
+    <div class="logo-text">Velvet <span>Petals</span></div>
+    </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="occasions.html">Occasions</a></li>
+            <li><a href="custom.html">Custom Orders</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <section class="home-intro-section">
+    <div class="corner-floral corner-left"></div>
+    <div class="corner-floral corner-right"></div>
+
+
+    <h1 class="welcome-title">Welcome to Velvet Petals</h1>
+    <p class="welcome-sub">Where Elegance Blooms</p>
+
+   
+    <div class="gold-divider"></div>
+
+<div class="music-player">
+    <button id="music-btn">
+        ♫ Play Music
+    </button>
+
+    <audio id="bg-music">
+        <source src="audio/audio_1.mp3" type="audio/mp3">
+    </audio>
+</div>
+</section>
+</header>
+
+<section class="hero fade-section">
+    <div class="hero-floral"></div>
+    <div class="hero-petals"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">Where Elegance Blooms</h1>
+        <p class="hero-desc">Velvet Petals crafts luxury floral arrangements for every moment.</p>
+        <a href="shop.html" class="btn">Shop Now</a>
+    </div>
+</section>
+
+<section class="about-preview">
+    <div class="about-container">
+        <img src="image/velvet.jpg" class="about-img">
+        <div class="about-text">
+            <h2>Welcome to Velvet Petals</h2>
+            <p>
+                A boutique floral shop specializing in premium arrangements crafted with love. 
+                Each bouquet is hand-designed to bring beauty, warmth, and elegance to your special moments.
+            </p>
+            <a href="about.html" class="learn-more">Learn More →</a>
+        </div>
+    </div>
+</section>
+
+<section class="collection">
+    <h2>Our Featured Collection</h2>
+
+    <div class="scroll-wrapper">
+
+       
+        <button class="scroll-btn left" onclick="scrollCollection(-300)">❮</button>
+
+        
+        <div class="collection-scroll" id="collectionScroll">
+
+            <div class="fancy-card">
+                <img src="image/flower_1.jpeg">
+                <h3>Romantic Roses</h3>
+            </div>
+
+            <div class="fancy-card">
+                <img src="image/flower_2.jpeg">
+                <h3>Pastel Harmony</h3>
+            </div>
+
+            <div class="fancy-card">
+                <img src="image/flower_3.jpeg">
+                <h3>Garden Elegance</h3>
+            </div>
+
+            <div class="fancy-card">
+                <img src="image/flower_4.jpg">
+                <h3>Lilies Grace</h3>
+            </div>
+
+            <div class="fancy-card">
+                <img src="image/flower_5.jpg">
+                <h3>Blossom Charm</h3>
+            </div>
+
+        </div>
+
+        <button class="scroll-btn right" onclick="scrollCollection(300)">❯</button>
+
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Have Something Special in Mind?</h2>
+    <p>We create bespoke floral arrangements tailored to your vision.</p>
+    <a href="custom.html" class="btn">Custom Order</a>
+</section>
+
+<footer>
+    <p>© 2026 Velvet Petals — Where Elegance Blooms</p>
+</footer>
+
+ <script>
+const sections = document.querySelectorAll('.fade-section');
+
+function checkSections() {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < triggerBottom) sec.classList.add("visible");
+    });
+}
+
+window.addEventListener('scroll', checkSections);
+window.addEventListener('load', checkSections);
+</script>
+
+<script>
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
+
+    btn.addEventListener("click", () => {
+        if (music.paused) {
+            music.play();
+            btn.textContent = "❚❚ Pause Music";
+        } else {
+            music.pause();
+            btn.textContent = "♫ Play Music";
+        }
+    });
+</script>
+
+
+<script>
+function scrollCollection(amount) {
+    document.getElementById("collectionScroll").scrollBy({
+        left: amount,
+        behavior: "smooth"
+    });
+}
+</script>
+
+<div id="customAlert" class="alert-overlay show">
+    <div class="alert-box">
+
+        <span class="alert-sparkle sparkle-1">✦</span>
+        <span class="alert-sparkle sparkle-2">✧</span>
+
+        <h2 class="alert-title">Welcome to Velvet Petals</h2>
+
+        <p class="alert-text">
+            Here, every arrangement is a story - delicate, personal, and made just for you
+        </p>
+
+        <button id="alertOk" class="alert-btn">Close</button>
+
+    </div>
+</div>
+
+</div>
+
+<script>
+function createPetal() {
+    const petal = document.createElement("div");
+    petal.classList.add("petal");
+
+    petal.style.left = Math.random() * window.innerWidth + "px";
+
+    const duration = 6 + Math.random() * 5;
+    petal.style.animationDuration = duration + "s";
+
+    const size = 20 + Math.random() * 25;
+    petal.style.width = size + "px";
+    petal.style.height = size + "px";
+
+    document.querySelector(".petal-container").appendChild(petal);
+
+    setTimeout(() => {
+        petal.remove();
+    }, duration * 1000);
+}
+
+setInterval(createPetal, 350);
+</script>
+
+<script>
+    const alertBox = document.getElementById("customAlert");
+    const closeBtn = document.getElementById("alertOk");
+
+    window.onload = () => {
+        alertBox.classList.add("show");
+    };
+
+    closeBtn.addEventListener("click", () => {
+        alertBox.classList.remove("show");
+    });
+</script>
+
+</body>
+</html>
+
+</body>
+</html>

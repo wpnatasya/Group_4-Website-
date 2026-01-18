@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velvet Petals | About us</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+     <nav class="navbar">
+        <div class="logo-area">
+    <img src="image/logo.png" alt="Logo" class="logo-icon">
+    <div class="logo-text">Velvet <span>Petals</span></div>
+    </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="occasions.html">Occasions</a></li>
+            <li><a href="custom.html">Custom Orders</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <section class="page-header fade-section">
+    <h1>About Velvet Petals</h1>
+    <p>Where passion meets petals.</p>
+</section>
+
+</header>
+
+<section class="about-story">
+    <div class="story-box">
+        <h2>Our Story</h2>
+        <p>
+            Velvet Petals was born from a love of delicate blooms and the art of handcrafted arrangements. 
+            Every bouquet we create carries emotion, elegance, and a touch of magic — designed to make every 
+            moment unforgettable.
+        </p>
+    </div>
+</section>
+
+<section class="about-features">
+    <div class="feature">
+        <img src="image/bouquet.png" alt="Flower">
+        <h3>Premium Blooms</h3>
+        <p>Fresh, handpicked flowers sourced from trusted growers.</p>
+    </div>
+
+    <div class="feature">
+        <img src="image/ribbon.png" alt="Ribbon">
+        <h3>Handcrafted With Love</h3>
+        <p>Every arrangement is uniquely designed with care and detail.</p>
+    </div>
+
+    <div class="feature">
+        <img src="image/delivery.png" alt="Delivery">
+        <h3>Same-Day Delivery</h3>
+        <p>Fast and reliable delivery for your special moments.</p>
+    </div>
+</section>
+
+<section class="about-video">
+    <div class="video-container">
+        <video controls>
+            <source src="video/video.mp4" type="video/mp4">
+        </video>
+    </div>
+    <p class="video-caption">A gentle look behind the scenes, where every Velvet Petals arrangement begins with love and careful hands.</p>
+</section>
+
+<section class="founder-section">
+    <div class="founder-img">
+        <img src="image/founder.jpeg" alt="Founder">
+    </div>
+
+    <div class="founder-text">
+        <h2>Meet Our Founder</h2>
+        <p align="justify">
+            Velvet Petals is the creation of four passionate womans. Putri, Ummu, Qistina, and Farah whose talents bloom together like a perfect bouquet. Putri paints the brand with soft romance, Ummu nurtures every detail with care, Qistina weaves stories through design, and Farah brings gentle warmth to every customer’s experience. Their hearts and hands unite to fill Velvet Petals with elegance and love.
+        </p>
+    </div>
+</section>
+
+<section class="mission">
+    <div class="mission-box">
+        <p>“At Velvet Petals, our mission is to bring elegance to every moment — one bloom at a time.”</p>
+    </div>
+</section>
+
+<section class="about-gallery">
+    <img src="image/flower_12.jpg" alt="Flower 1">
+    <img src="image/ribbon.jpg" alt="Flower 2">
+    <img src="image/flower_14.jpg" alt="Flower 3">
+</section>
+
+<footer>
+    <p>©️ 2026 Velvet Petals — Where Elegance Blooms</p>
+</footer>
+
+<script>
+
+const sections = document.querySelectorAll('.fade-section');
+
+function checkSections() {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < triggerBottom) sec.classList.add("visible");
+    });
+}
+
+window.addEventListener('scroll', checkSections);
+window.addEventListener('load', checkSections);
+
+
+const colorOptions = document.querySelectorAll(".color");
+
+colorOptions.forEach(c => {
+    c.addEventListener("click", () => {
+        colorOptions.forEach(co => co.classList.remove("selected"));
+        c.classList.add("selected");
+    });
+});
+
+
+const fileInput = document.getElementById("fileInput");
+const imagePreview = document.getElementById("imagePreview");
+const previewImg = document.getElementById("previewImg");
+
+fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+    if (file) {
+        previewImg.src = URL.createObjectURL(file);
+        imagePreview.style.display = "block";
+    }
+});
+</script>
+
+</body>
+</html>
